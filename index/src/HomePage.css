@@ -1,0 +1,68 @@
+/* HomePage.css */
+body {
+  background-color: #ffd700; /* สีเหลืองอ่อน */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.styled-table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    border: 1px solid #ddd;
+    padding: 3px;
+    min-width: 70px; /* กำหนดขนาดความกว้างขั้นต่ำของแต่ละคอลัมน์ */
+  }
+  
+  .styled-table th {
+    background-color: #AEAEAE;
+  }
+  
+  .styled-table th.up-time {
+    background-color: #90ee90; /* สีเขียวอ่อน */
+  }
+  
+  .styled-table th.down-time {
+    background-color: #ffff99; /* สีเหลืองอ่อน */
+  }
+  
+  .styled-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .styled-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .capture-form {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .form-container.no-buttons .button-container {
+    display: none;
+  }
+
+  .form-container {
+    background-color: white;
+    width: 800px; /* กำหนดความกว้างคงที่ */
+    padding: 20px;
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #f2e4b9;
+  }
+  

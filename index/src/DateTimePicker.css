@@ -1,0 +1,23 @@
+.button-containerdate {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+  }
+  
+  .today-buttondate, .ok-buttondate, .cancel-buttondate {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .today-buttondate:hover, .ok-buttondate:hover, .cancel-buttondate:hover {
+    background-color: #e0e0e0;
+  }
+  

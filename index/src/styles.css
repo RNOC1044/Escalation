@@ -1,0 +1,421 @@
+body {
+    font-family: "Kanit", Arial, sans-serif;
+    font-weight: 20;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อชิดซ้าย */
+    align-items: flex-start; /* เลื่อนการจัดให้อยู่ด้านบน */
+    height: auto; /* ตั้งค่าเป็น auto เพื่อให้หน้าจอขยายตามเนื้อหา */
+    margin: 0;
+    overflow-x: hidden; /* ป้องกันการเลื่อนในแนวนอน */
+    overflow-y: auto; /* อนุญาตให้เลื่อนในแนวตั้ง */
+}
+
+.form-container {
+    background-color: transparent;
+    width: 175%; /* ขยายให้เต็มหน้าจอ */
+    max-width: 2000px; /* กำหนดความกว้างสูงสุด */
+    margin: 0; /* ลบ margin เพื่อชิดซ้าย */
+    padding: 20px;
+    border-radius: 5px;
+    overflow-x: auto; /* อนุญาตให้เลื่อนในแนวนอน */
+    overflow-y: visible;
+}
+
+.row {
+    display: flex;
+    border-bottom: none; /* ลบเส้นขอบตรงกลางออก */
+    height: auto;
+    border-left:black ;
+}
+
+.cell {
+    width: 25%;
+    border: 1px solid black;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.cell2:last-child {
+    flex: 1; /* ปรับให้ input-cell ขยายเต็มพื้นที่ที่เหลือ */
+    padding: 10px;
+    border-bottom: none;
+}
+
+.header {
+    background-color: #00b050;
+    color: white;
+    text-align: center;
+    border-right: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
+    border-left: 1px solid black; /* เพิ่มเส้นขอบด้านซ้าย */
+    border-top: 1px solid black;
+    border: 1px solid black;
+}
+
+.full-width {
+    flex: 1;
+}
+
+.label {
+    background-color: #dbdbdb;
+    width: 20%;
+    text-align: center;
+}
+.label1 {
+    background-color: #00b050;
+    width: 20%;
+    text-align: center;
+}
+
+.labeltext {
+    text-align: center;
+    width: 70px;
+    background-color: #ffe4e1;
+    border-right: none; /* ไม่แสดงเส้นขอบด้านใน */ 
+    border-left: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
+}
+
+.input-cell {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    background-color: #C6E0B4;
+    flex: 1;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    padding: 15px;
+    width: 100%; /* ขยายให้เต็ม */
+    text-align: center;
+}
+
+.input-cell1 {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    background-color: #ffe4e1;
+    flex: 1;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    padding: 15px;
+    width: 100%; /* ขยายให้เต็ม */
+    text-align: center;
+}
+/* ตั้งค่าเริ่มต้นให้ input ทุกตัวข้อความอยู่ทางซ้าย */
+input[type="text"] {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    font-size: 18px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    box-sizing: border-box;
+    background-color: transparent;
+    text-align: left;
+}
+
+/* จัดข้อความให้อยู่ตรงกลางและให้ input เต็มความกว้างสำหรับ input[type="texthead"] */
+input[type="texthead"] {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* ครอบคลุมพื้นที่ทั้งหมด */
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+    border-top: #000000;
+    border-style: 1px;
+}
+
+input[type="textone"] {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    font-size: 20px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    box-sizing: border-box;
+    background-color: transparent;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.header-input2 {
+    border: 1px solid black; /* เพิ่มเส้นขอบ */
+    padding: 8px; /* เพิ่มระยะห่างด้านใน */
+    width: 100%; /* ให้ขยายเต็มความกว้าง */
+    box-sizing: border-box; /* รวม padding ในขนาด */
+
+}
+
+.transparent-input {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    background-color: transparent;
+    border: 1px solid black;
+    width: 100px;
+    overflow-wrap: break-word;
+    /*outline: none; /* ลบขอบที่แสดงเมื่อคลิก */
+}
+select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+/* ปรับขนาดดรอปดาวน์ */
+#dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+#dropdown option {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dropdown-green {
+    background-color: #00b050;
+    color: black;
+}
+.dropdown-yellow {
+    background-color: yellow;
+    color: black;
+}
+.dropdown-rgb {
+    background-color: rgb(177, 31, 145);
+    color: white;
+}
+.dropdown-red{
+    background-color: red;
+    color: white;
+}
+.header-green {
+    background-color: #00b050;
+    color: black;
+}
+.header-yellow {
+    background-color: yellow;
+    color: black;
+}
+.header-rgb {
+    background-color: rgb(177, 31, 145);
+    color: white;
+}
+.header-red{
+    background-color: red;
+    color: white;
+}
+.status-labelgreen{
+    background-color: #00b050;
+    color: black;
+}
+.status-labelyellow{
+    background-color: yellow;
+    color: black;
+}
+.status-labelrgb{
+    background-color: rgb(177, 31, 145);
+    color: white;
+}
+.status-labelred{
+    background-color: red;
+    color: white;
+}
+.resized-image {
+    width: 30px;  /* ปรับขนาดความกว้างเป็น 30 พิกเซล */
+    height: 30px; /* ปรับขนาดความสูงเป็น 30 พิกเซล */
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    background-color: transparent;
+    display: block;
+    margin: 0 auto; /* จัดกึ่งกลางภาพ */
+}
+
+.image-table {
+    width: 100%; 
+    border-collapse: collapse;
+    
+}
+
+.image-table td, .image-table th {
+    border: 1px solid black; /* เพิ่มเส้นขอบรอบคอลัมน์ */
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle; /* จัดข้อความและภาพให้อยู่กึ่งกลาง */
+}
+
+.image-table th:first-child {
+    border-left: 1px solid black; /* เพิ่มเส้นขอบด้านซ้าย*/
+    border-top: none; /* ลบเส้นขอบด้านบน */
+    border-right: none; /* ลบเส้นขอบด้านขวา */
+}
+
+.image-table th:last-child {
+    border-right: 1px solid black; /* เพิ่มเส้นขอบด้านขวา*/
+    border-top: none; /* ลบเส้นขอบด้านบน */
+    border-left: none; /* ลบเส้นขอบด้านซ้าย */
+}
+
+ 
+.image-table th:nth-child(2), 
+.image-table th:nth-child(3) {
+    border-top: none; /* ลบเส้นขอบด้านบน */
+    border-left: none; /* ลบเส้นขอบด้านซ้าย */
+    border-right: none; /* ลบเส้นขอบด้านขวา */
+}
+.image-table .hour1,.image-table .hour2,.image-table .hour3{
+    width: 10%; 
+}
+
+.image-table .hour4{
+    width: 60%;
+    
+}
+.selected {
+    background-color: #00b050;
+}
+.image-table .hour11,.image-table .hour12,.image-table .hour13 {
+    width: 13%;
+    border-bottom: none;
+    border-left: none; 
+    border-right: none;
+}
+
+.image-table .hour14 {
+    width: 50%;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.button-container {
+    position: fixed; /* แก้จาก absolute เป็น fixed */
+    right: 20px; /* ชิดขอบขวา */
+    bottom: 20px; /* ชิดขอบล่าง */
+    display: flex;
+    gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    flex-direction: column; /* จัดปุ่มให้เรียงในแนวตั้ง */
+    z-index: 10; /* ทำให้ปุ่มอยู่ด้านบนสุด */
+}
+
+/*--------------------------------*/
+/* จัดรูปแบบเมื่อเลือกช่อง */
+.selected-input {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    background-color: #f0e68c; /* สีพื้นหลังเมื่อเลือกช่อง */
+    /*border: 2px solid black; /* เส้นขอบสีแดงเมื่อเลือกช่อง */
+}
+
+/* ปุ่มลบ */
+.delete-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    
+}
+/*.button-container {
+    position: absolute; /* ตั้งตำแหน่งให้ absolute */
+    /*right: 20px; /* วางปุ่มให้ชิดขอบขวา */
+    /*bottom: 20px; /* วางปุ่มให้ชิดขอบล่าง */
+    /*display: flex;
+    /*gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */ 
+
+
+.green {
+    background-color: #00b050; /* สีเขียว */
+    color: white; /* เปลี่ยนสีตัวอักษรเป็นสีขาวเพื่อให้มองเห็นได้ชัด */
+}
+
+textarea.transparent-input {
+    font-family: 'Bai Jamjuree', Arial, sans-serif;
+    font-size: 18px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    resize: none; /* ปิดการปรับขนาด */
+    overflow-wrap: break-word; /* ให้ตัดบรรทัดใหม่เมื่อคำยาวเกิน */
+    white-space: pre-wrap; /* รองรับการตัดบรรทัดใหม่ */
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.check-icon {
+    width: 50px; /* ปรับขนาดของไอคอนให้เหมาะสม */
+    height: 50px;
+    margin: 0; /* ลบ margin ออกเพื่อให้ชิดกับช่อง */
+    position: relative;
+}
+
+.cell2.labeltext {
+    display: flex;
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+}
+
+.gray-area {
+    position: relative; /* ทำให้คอนเทนเนอร์นี้เป็นตำแหน่งอ้างอิงสำหรับตำแหน่ง absolute ของปรอท */
+    border-radius: 8px;
+    /*margin-bottom: 10px; /* ระยะห่างจากองค์ประกอบด้านล่าง */
+}
+
+.thermometer-icon {
+    position: absolute; /* ทำให้ภาพปรอทอยู่ในตำแหน่ง absolute */
+    right: 60px; /* ตำแหน่งห่างจากขอบขวา */
+    top: 80px; /* ตำแหน่งห่างจากด้านบน */
+    width: 67px; /* กำหนดขนาดของปรอท */
+    height: auto;
+    z-index: 10; /* เพิ่มค่า z-index เพื่อให้ภาพอยู่ด้านหน้าข้อความ */
+    opacity: 1; /* ปรับความโปร่งใสเล็กน้อย (ถ้าต้องการ) */
+}
+
+.yellow-button {
+    background-color: yellow;
+    color: black;
+}
+
+.back-button {
+    padding: 2px 2px;
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    color: #000000; /* ตัวอักษรสีดำ */
+    border: 1px solid #000000; /* ขอบสีดำ */
+    border-radius: 4px; /* มุมมนเล็กน้อย */
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: none; /* ไม่มีการแรเงา */
+    outline: none; /* ไม่มีขอบเมื่อคลิก */
+}
+
+.status-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    border: none;
+  }
+  
+  .resized-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+  
