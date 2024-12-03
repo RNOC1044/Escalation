@@ -22,14 +22,14 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
   // ฟังก์ชันสำหรับการค้นหาข้อมูลผ่าน API
   const handleSearchClick = async () => {
     try {
-      const response = await axios.get('https://escalation-o1rf.onrender.com', {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/search`, {
         params: { query: searchTerm },
       });
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  };
+  };  
 
   // ฟังก์ชันเมื่อคลิกเลือก ID จากผลลัพธ์การค้นหา
   const handleClickID = (data) => {
