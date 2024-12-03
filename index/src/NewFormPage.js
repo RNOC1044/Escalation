@@ -22,7 +22,7 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
   // ฟังก์ชันสำหรับการค้นหาข้อมูลผ่าน API
   const handleSearchClick = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/search', {
+      const response = await axios.get('https://escalation-o1rf.onrender.com', {
         params: { query: searchTerm },
       });
       setResults(response.data);
