@@ -4,17 +4,17 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.DB_PORT || 5000;
+const port =  5000;
 
 app.use(cors());
 app.use(express.json());
 
 const db = new Pool({
-  host: 'localhost',
-  user: 'postgres',
-  password: '1112',
-  database: 'esclsystem',
-  port: 5432,
+  host: process.env.DB_HOST || 'dpg-ct77ophu0jms73dn2dtg-a',
+  user: process.env.DB_USER || 'postgres_03p0_user',
+  password: process.env.DB_PASSWORD || 'kzA1rFntFhOYcP8bRSE27YD3JCMpoYYS',  
+  database: process.env.DB_NAME || 'postgres_03p0',
+  port: process.env.DB_PORT || 5432,
 });
 
 db.on('error', (err) => {
@@ -34,7 +34,7 @@ app.get('/api/search', async (req, res, next) => {
     return res.status(400).json({ error: 'Invalid query parameter' });
   }
 
-  const sql = 'SELECT * FROM escalation.companies WHERE name LIKE $1';
+  const sql = 'SELECT * FROM companies WHERE name LIKE $1';
   try {
     const results = await db.query(sql, [`%${query}%`]);
     res.json(results.rows);
