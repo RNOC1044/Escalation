@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import checkIcon from '/app/index/src/checkIcon.png';
+import checkIcon from './assets/images/checkIcon.png';
 
 const InputList = ({ inputs, selectedInput, setSelectedInput, selectedData, textValues, setTextValues }) => {
 
