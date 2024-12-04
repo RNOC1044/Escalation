@@ -21,6 +21,11 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
 
   // ฟังก์ชันสำหรับการค้นหาข้อมูลผ่าน API
   const handleSearchClick = async () => {
+    if (!searchTerm.trim()) {
+      alert('กรุณากรอกคำค้นหา'); // แจ้งเตือนผู้ใช้ถ้าไม่มีข้อความค้นหา
+      return;
+    }
+
     try {
       const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/search`, {
         params: { query: searchTerm },
@@ -28,8 +33,9 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
+      alert('เกิดข้อผิดพลาดในการค้นหา กรุณาลองใหม่อีกครั้ง'); // แจ้งเตือนเมื่อมีข้อผิดพลาด
     }
-  };  
+  };
 
   // ฟังก์ชันเมื่อคลิกเลือก ID จากผลลัพธ์การค้นหา
   const handleClickID = (data) => {
