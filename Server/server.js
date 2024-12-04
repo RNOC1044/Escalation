@@ -4,20 +4,28 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+const port = process.env.DB_PORT || 5000;
+
 app.use(cors());
 app.use(express.json());
 
 const db = new Pool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 5432,
+  host: 'localhost',
+  user: 'postgres',
+  password: '1112',
+  database: 'esclsystem',
+  port: 5432,
 });
 
 db.on('error', (err) => {
   console.error('Database error:', err);
   process.exit(-1);
+});
+
+
+app.get('/api/test', (req, res) => {
+  console.log("Hello World!");
+  
 });
 
 app.get('/api/search', async (req, res, next) => {
@@ -26,7 +34,7 @@ app.get('/api/search', async (req, res, next) => {
     return res.status(400).json({ error: 'Invalid query parameter' });
   }
 
-  const sql = 'SELECT * FROM datafrom WHERE ID::text LIKE $1';
+  const sql = 'SELECT * FROM escalation.companies WHERE name LIKE $1';
   try {
     const results = await db.query(sql, [`%${query}%`]);
     res.json(results.rows);
@@ -35,13 +43,12 @@ app.get('/api/search', async (req, res, next) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
-app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({ error: err.message || 'Internal Server Error' });
-});
+// app.use((err, req, res, next) => {
+//   console.error('Unhandled error:', err);
+//   res.status(500).json({ error: err.message || 'Internal Server Error' });
+// });
 

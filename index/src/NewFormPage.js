@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FormComponent from './FormComponent';
+import { SERVER_URL } from './config/HTTP_API';
 
 const NewFormPage = ({ onSave, goToHomePage, editData }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,9 +28,12 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
     }
 
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/search`, {
-        params: { query: searchTerm },
-      });
+      // const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/search`, {
+      //   params: { query: searchTerm },
+      // });
+      const response = await axios.get(SERVER_URL +'search', { params: { query: searchTerm } });    
+      console.log(response);
+        
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -80,7 +84,7 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
               style={{ cursor: 'pointer', textDecoration: 'underline', color: 'blue' }}
               onClick={() => handleClickID(result)}
             >
-              ID: {result.id}
+              ID: {result.customer_id}
             </span>
             <br />
             NAME: {result.name}
