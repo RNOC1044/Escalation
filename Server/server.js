@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const db = new Pool({
-  host: process.env.DB_HOST || 'dpg-ct77ophu0jms73dn2dtg-a',
+  host: process.env.DB_HOST || 'dpg-ct77ophu0jms73dn2dtg-a.singapore-postgres.render.com',
   user: process.env.DB_USER || 'postgres_03p0_user',
   password: process.env.DB_PASSWORD || 'kzA1rFntFhOYcP8bRSE27YD3JCMpoYYS',  
   database: process.env.DB_NAME || 'postgres_03p0',
