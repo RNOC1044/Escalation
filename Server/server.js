@@ -34,7 +34,7 @@ app.get('/api/search', async (req, res, next) => {
     return res.status(400).json({ error: 'Invalid query parameter' });
   }
 
-  const sql = 'SELECT * FROM companies WHERE name LIKE $1';
+  const sql = 'SELECT * FROM companiesdb WHERE name LIKE $1';
   try {
     const results = await db.query(sql, [`%${query}%`]);
     res.json(results.rows);
