@@ -22,7 +22,7 @@ const ImageTable = ({ toggleThermometer, toggleThermometerOrange, toggleThermome
                 <tr>
                     {[...Array(4)].map((_, idx) => (
                         <th key={idx}>
-                            <img src="https://th2-cdn.pgimgs.com/agent/1231223/APHO.113670774.V300.jpg" alt="Person" className="resized-image" />
+                            <img src="assets/images/pp.png" alt="Person" className="resized-image" />
                         </th>
                     ))}
                 </tr>
