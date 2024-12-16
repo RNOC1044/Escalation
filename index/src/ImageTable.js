@@ -1,4 +1,5 @@
 import React from 'react';
+import ppImage from './assets/images/pp.png';
 
 const ImageTable = ({ toggleThermometer, toggleThermometerOrange, toggleThermometerRed, selectedCells, setSelectedCells }) => {
     const toggleColor = (index) => {
@@ -22,7 +23,7 @@ const ImageTable = ({ toggleThermometer, toggleThermometerOrange, toggleThermome
                 <tr>
                     {[...Array(4)].map((_, idx) => (
                         <th key={idx}>
-                            <img src="assets/images/pp.png" alt="Person" className="resized-image" />
+                            <img src={ppImage} alt="Person" className="resized-image" />
                         </th>
                     ))}
                 </tr>
