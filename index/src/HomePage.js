@@ -31,11 +31,11 @@ const HomePage = ({ data, onDelete, onEdit }) => {
             <td>{item.upTime}</td>
             <td>{item.downTime}</td>
             <td>{item.lastEditedTime || 'N/A'}</td>
-            <td>
-              <button onClick={() => onEdit(index)} style={{ color: 'blue', cursor: 'pointer' }}>
+            <td className="action-buttons">
+              <button onClick={() => onEdit(index)} style={{ color: 'blue', cursor: 'pointer' }}> 
                 Edit
               </button>
-              <button onClick={() => onDelete(index)} style={{ color: 'red', cursor: 'pointer', marginLeft: '10px' }}>
+              <button onClick={() => onDelete(index)} style={{ color: 'red', cursor: 'pointer' }}>
                 Delete
               </button>
             </td>

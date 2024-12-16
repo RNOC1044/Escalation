@@ -1,7 +1,7 @@
 body {
     font-family: "Kanit", Arial, sans-serif;
     font-weight: 20;
-    background-color: #f4f4f4;
+    background-color: #dbdbdb;
     display: flex;
     justify-content: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อชิดซ้าย */
     align-items: flex-start; /* เลื่อนการจัดให้อยู่ด้านบน */
@@ -72,7 +72,8 @@ body {
 .labeltext {
     text-align: center;
     width: 70px;
-    background-color: #ffe4e1;
+    background-color: #dbdbdb;
+    /*background-color: #ffe4e1;*/
     border-right: none; /* ไม่แสดงเส้นขอบด้านใน */ 
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
 }
@@ -90,7 +91,7 @@ body {
 
 .input-cell1 {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
-    background-color: #ffe4e1;
+    background-color: #dbdbdb;
     flex: 1;
     border-right: 1px solid black;
     border-left: 1px solid black;
@@ -191,7 +192,7 @@ select {
     color: black;
 }
 .dropdown-rgb {
-    background-color: rgb(177, 31, 145);
+    background-color: #7030A0;
     color: white;
 }
 .dropdown-red{
@@ -207,7 +208,7 @@ select {
     color: black;
 }
 .header-rgb {
-    background-color: rgb(177, 31, 145);
+    background-color: #7030A0;
     color: white;
 }
 .header-red{
@@ -223,7 +224,7 @@ select {
     color: black;
 }
 .status-labelrgb{
-    background-color: rgb(177, 31, 145);
+    background-color: #7030A0  ;
     color: white;
 }
 .status-labelred{

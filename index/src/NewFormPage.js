@@ -32,8 +32,8 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
       //   params: { query: searchTerm },
       // });
       const response = await axios.get(SERVER_URL +'search', { params: { query: searchTerm } });    
-      console.log(response);
-        
+      console.log(response);    
+
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -43,7 +43,11 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
 
   // ฟังก์ชันเมื่อคลิกเลือก ID จากผลลัพธ์การค้นหา
   const handleClickID = (data) => {
-    setSelectedData(data);
+    const formattedData = {
+      ...data,
+      id: data.customer_id, // กำหนด customer_id ให้กับ id
+    };
+    setSelectedData(formattedData);
   };
 
   // ฟังก์ชันสำหรับการบันทึกข้อมูล
@@ -84,7 +88,7 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
               style={{ cursor: 'pointer', textDecoration: 'underline', color: 'blue' }}
               onClick={() => handleClickID(result)}
             >
-              ID: {result.customer_id}
+            customer_id: {result.customer_id}
             </span>
             <br />
             NAME: {result.name}

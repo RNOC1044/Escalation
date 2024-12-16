@@ -22,7 +22,7 @@ const ImageTable = ({ toggleThermometer, toggleThermometerOrange, toggleThermome
             <tbody>
                 <tr>
                     {[...Array(4)].map((_, idx) => (
-                        <th key={idx}>
+                        <th key={idx} style={{ backgroundColor: '#dbdbdb' }}>
                             <img src={ppImage} alt="Person" className="resized-image" />
                         </th>
                     ))}
