@@ -6,12 +6,7 @@ require('dotenv').config();
 const app = express();
 const port =  5000;
 
-//app.use(cors());
-app.use(cors({
-  origin: 'https://escalation-1.onrender.com', // URL ของ React frontend ที่โฮสต์บน Render
-  methods: ['GET', 'POST'], // จำกัด HTTP methods ตามที่ใช้งานจริง
-}));
-
+app.use(cors());
 app.use(express.json());
 
 const db = new Pool({
