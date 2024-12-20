@@ -17,7 +17,20 @@ const InputList = ({ inputs, selectedInput, setSelectedInput, selectedData, text
             return newTextValues;
         });
     };    
-
+    setTimeout(() => {
+        const textAreas = document.querySelectorAll('textarea.transparent-input');
+        if (selectedData.sizes) {
+            textAreas.forEach((textarea, index) => {
+                textarea.style.height = `${selectedData.sizes[index]}px`;
+            });
+        } else {
+            textAreas.forEach((textarea) => {
+                textarea.style.height = "auto";
+                textarea.style.height = `${textarea.scrollHeight}px`;
+            });
+        }
+    }, 0);
+    
     const autoResize = (e) => {
         e.target.style.height = "auto";
         e.target.style.height = `${e.target.scrollHeight}px`;

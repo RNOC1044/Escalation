@@ -20,6 +20,7 @@ body {
     border-radius: 5px;
     overflow-x: auto; /* อนุญาตให้เลื่อนในแนวนอน */
     overflow-y: visible;
+    
 }
 
 .row {
@@ -154,7 +155,9 @@ input[type="textone"] {
     border: 1px solid black;
     width: 100px;
     overflow-wrap: break-word;
-    /*outline: none; /* ลบขอบที่แสดงเมื่อคลิก */
+    white-space: pre-wrap; /* บรรทัดใหม่ */
+    word-wrap: break-word; /* ตัดคำยาวเกินขอบ */
+    overflow: hidden; /* ซ่อน scroll bar */
 }
 select {
     padding: 5px;
@@ -347,11 +350,13 @@ textarea.transparent-input {
     background-color: transparent;
     border: none;
     resize: none; /* ปิดการปรับขนาด */
-    overflow-wrap: break-word; /* ให้ตัดบรรทัดใหม่เมื่อคำยาวเกิน */
-    white-space: pre-wrap; /* รองรับการตัดบรรทัดใหม่ */
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
     box-sizing: border-box;
     padding: 10px;
+    box-sizing: border-box; /* ป้องกันการเคลื่อนที่จาก padding */
 }
+
 
 .check-icon {
     width: 50px; /* ปรับขนาดของไอคอนให้เหมาะสม */

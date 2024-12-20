@@ -30,7 +30,7 @@ const FormComponent = ({ selectedData, onSave }) => {
   const [textValues, setTextValues] = useState([]);
   const [faultTime, setFaultTime] = useState('');
   const formRef = useRef(null); // สร้าง useRef สำหรับฟอร์ม
-  const q = 'some value';
+  //const q = 'some value';
   
   const handleDownloadCapture = async () => {
     if (formRef.current) {
@@ -60,32 +60,40 @@ const FormComponent = ({ selectedData, onSave }) => {
   // ฟังก์ชันแคปเจอร์และคัดลอกไปยังคลิปบอร์ด
   const handleCaptureAndCopy = async () => {
     if (formRef.current) {
-      try {
-        const canvas = await html2canvas(formRef.current, {
-          scale: 2, // เพิ่มความละเอียดของภาพ
-          useCORS: true,
-          logging: true,
-          windowWidth: document.documentElement.scrollWidth,
-          windowHeight: document.documentElement.scrollHeight,q
-        });
-        const blob = await new Promise((resolve) => canvas.toBlob(resolve));
+        try {
+            const textAreas = formRef.current.querySelectorAll('textarea.transparent-input');
+            textAreas.forEach((textarea) => {
+                textarea.style.height = "auto";
+                textarea.style.whiteSpace = "pre-wrap";
+                textarea.style.wordWrap = 'break-word';
+                textarea.style.height = `${textarea.scrollHeight}px`;
+            });
 
-        if (navigator.clipboard && navigator.clipboard.write) {
-          await navigator.clipboard.write([
-            new ClipboardItem({
-              "image/png": blob,
-            }),
-          ]);
-          alert("คัดลอกภาพไปยังคลิปบอร์ดแล้ว!");
-        } else {
-          alert("เบราว์เซอร์ของคุณไม่รองรับการคัดลอกภาพไปยังคลิปบอร์ด");
+            // ใช้ html2canvas เพื่อจับภาพ
+            const canvas = await html2canvas(formRef.current, {
+                scale: 2, // เพิ่มความละเอียดของภาพ
+                useCORS: true,
+                allowTaint: true, // อนุญาตให้จับข้อมูลที่ไม่ได้มาจากโดเมนเดียวกัน
+            });
+
+            // แปลง canvas เป็น Blob เพื่อเตรียมคัดลอกไปยังคลิปบอร์ด
+            const blob = await new Promise((resolve) => canvas.toBlob(resolve));
+            if (navigator.clipboard && navigator.clipboard.write) {
+                await navigator.clipboard.write([
+                    new ClipboardItem({
+                        "image/png": blob,
+                    }),
+                ]);
+                alert("คัดลอกภาพไปยังคลิปบอร์ดสำเร็จแล้ว!");
+            } else {
+                alert("เบราว์เซอร์ของคุณไม่รองรับการคัดลอกภาพไปยังคลิปบอร์ด");
+            }
+        } catch (error) {
+            console.error("เกิดข้อผิดพลาดในการคัดลอกภาพ:", error);
+            alert("ไม่สามารถคัดลอกภาพได้");
         }
-      } catch (error) {
-        console.error("เกิดข้อผิดพลาดในการแคปเจอร์หรือคัดลอก:", error);
-        alert("ไม่สามารถคัดลอกภาพได้");
-      }
     }
-  };
+};
 
   // เติมข้อมูลจาก selectedData เมื่อได้รับ props
   useEffect(() => {
@@ -200,7 +208,21 @@ useEffect(() => {
       console.error("onSave function is not defined");
     }
   };
+  const handleInputChange = (index, value) => {
+    setTextValues((prev) => {
+        const updated = [...prev];
+        updated[index] = value;
+        return updated;
+    });
+  };  
 
+        <InputList
+          inputs={inputs}
+          textValues={textValues}
+          setTextValues={(index, value) => handleInputChange(index, value)}
+       />
+
+  
   return (
     <div ref={formRef} className="form-container">
       <HeaderInput value={input} onChange={(e) => setInput(e.target.value)} placeholder="Input" className="header" />
