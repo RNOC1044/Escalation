@@ -54,7 +54,7 @@ const InputList = ({ inputs, selectedInput, setSelectedInput, selectedData, text
                             value={textValues[index] || ''}
                             onChange={(e) => handleInputChange(e, index)}
                             onInput={autoResize}
-                            style={{ overflow: 'hidden', whiteSpace: 'pre-wrap' }}
+                            style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
                             maxLength={1000}
                         />
                     </div>

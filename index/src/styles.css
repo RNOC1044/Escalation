@@ -151,14 +151,20 @@ input[type="textone"] {
 
 .transparent-input {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
+    font-size: 16px;
+    width: 100%;
     background-color: transparent;
     border: 1px solid black;
-    width: 100px;
-    overflow-wrap: break-word;
-    white-space: pre-wrap; /* บรรทัดใหม่ */
-    word-wrap: break-word; /* ตัดคำยาวเกินขอบ */
-    overflow: hidden; /* ซ่อน scroll bar */
+    resize: none;
+    white-space: pre-wrap; /* รักษาบรรทัดใหม่ */
+    word-wrap: break-word; /* ตัดคำ */
+    overflow-wrap: break-word; /* จัดการคำล้น */
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    /*line-height: 1.5; /* ระยะห่างระหว่างบรรทัด */
 }
+
 select {
     padding: 5px;
     border-radius: 4px;
@@ -343,18 +349,20 @@ select {
     color: white; /* เปลี่ยนสีตัวอักษรเป็นสีขาวเพื่อให้มองเห็นได้ชัด */
 }
 
+
 textarea.transparent-input {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
-    font-size: 18px;
-    width: 100%;
-    background-color: transparent;
-    border: none;
+    font-size: 16px;
+    width: 100%; /* ขยายให้เต็ม */
+    background-color: transparent; /* พื้นหลังโปร่งใส */
+    border: none; /* ไม่มีเส้นขอบ */
     resize: none; /* ปิดการปรับขนาด */
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    box-sizing: border-box;
+    white-space: pre-wrap; /* รักษาบรรทัดใหม่ */
+    word-wrap: break-word; /* ตัดคำที่ยาว */
+    overflow-wrap: break-word; /* จัดการคำล้น */
+    overflow: hidden; /* ซ่อน scroll bar */
+    /*box-sizing: border-box;*/
     padding: 10px;
-    box-sizing: border-box; /* ป้องกันการเคลื่อนที่จาก padding */
 }
 
 

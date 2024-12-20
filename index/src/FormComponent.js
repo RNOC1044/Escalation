@@ -61,36 +61,63 @@ const FormComponent = ({ selectedData, onSave }) => {
   const handleCaptureAndCopy = async () => {
     if (formRef.current) {
         try {
+            // ดึงทุก textarea
             const textAreas = formRef.current.querySelectorAll('textarea.transparent-input');
+
+            // สร้าง div ใหม่เพื่อเลียนแบบ textarea
             textAreas.forEach((textarea) => {
-                textarea.style.height = "auto";
-                textarea.style.whiteSpace = "pre-wrap";
-                textarea.style.wordWrap = 'break-word';
-                textarea.style.height = `${textarea.scrollHeight}px`;
+                const div = document.createElement('div');
+                div.style.whiteSpace = 'pre-wrap'; // รักษาบรรทัดใหม่
+                div.style.wordWrap = 'break-word'; // ตัดคำ
+                div.style.overflowWrap = 'break-word'; // จัดการคำล้น
+                //div.style.lineHeight = '1.5'; // ระยะห่างระหว่างบรรทัด
+                div.style.fontSize = window.getComputedStyle(textarea).fontSize; // ใช้ขนาดฟอนต์เดียวกัน
+                div.style.fontFamily = window.getComputedStyle(textarea).fontFamily; // ใช้ฟอนต์เดียวกัน
+                div.style.padding = window.getComputedStyle(textarea).padding; // ใช้ padding เดียวกัน
+                div.style.border = window.getComputedStyle(textarea).border; // ใช้ border เดียวกัน
+                div.style.backgroundColor = 'transparent'; // ให้เป็นพื้นหลังโปร่งใส
+                div.style.position = 'absolute'; // ทำให้ div ทับที่เดิม
+                div.style.left = textarea.offsetLeft + 'px';
+                div.style.top = textarea.offsetTop + 'px';
+                div.style.width = textarea.offsetWidth + 'px';
+                div.style.height = textarea.offsetHeight + 'px';
+                div.innerText = textarea.value; // ใส่ข้อความจาก textarea
+                div.style.textAlign = 'left'; // จัดข้อความชิดซ้าย
+                div.style.fontWeight = '360'; // ข้อความตัวหนา
+                
+                textarea.style.visibility = 'hidden'; // ซ่อน textarea ชั่วคราว
+                textarea.parentElement.appendChild(div);
             });
 
-            // ใช้ html2canvas เพื่อจับภาพ
+            // ใช้ html2canvas เพื่อแคปเจอร์ฟอร์ม
             const canvas = await html2canvas(formRef.current, {
-                scale: 2, // เพิ่มความละเอียดของภาพ
+                scale: 2,
                 useCORS: true,
-                allowTaint: true, // อนุญาตให้จับข้อมูลที่ไม่ได้มาจากโดเมนเดียวกัน
+                allowTaint: true,
             });
 
-            // แปลง canvas เป็น Blob เพื่อเตรียมคัดลอกไปยังคลิปบอร์ด
-            const blob = await new Promise((resolve) => canvas.toBlob(resolve));
+            // คืนค่า visibility ของ textarea
+            textAreas.forEach((textarea) => {
+                textarea.style.visibility = 'visible';
+                const div = textarea.parentElement.querySelector('div');
+                if (div) textarea.parentElement.removeChild(div);
+            });
+
+            // แปลง canvas เป็น Blob และคัดลอกไปยังคลิปบอร์ด
+            const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
             if (navigator.clipboard && navigator.clipboard.write) {
                 await navigator.clipboard.write([
                     new ClipboardItem({
-                        "image/png": blob,
+                        'image/png': blob,
                     }),
                 ]);
-                alert("คัดลอกภาพไปยังคลิปบอร์ดสำเร็จแล้ว!");
+                alert('คัดลอกภาพไปยังคลิปบอร์ดสำเร็จแล้ว!');
             } else {
-                alert("เบราว์เซอร์ของคุณไม่รองรับการคัดลอกภาพไปยังคลิปบอร์ด");
+                alert('เบราว์เซอร์ของคุณไม่รองรับการคัดลอกภาพไปยังคลิปบอร์ด');
             }
         } catch (error) {
-            console.error("เกิดข้อผิดพลาดในการคัดลอกภาพ:", error);
-            alert("ไม่สามารถคัดลอกภาพได้");
+            console.error('เกิดข้อผิดพลาดในการคัดลอกภาพ:', error);
+            alert('ไม่สามารถคัดลอกภาพได้');
         }
     }
 };
