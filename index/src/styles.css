@@ -1,7 +1,7 @@
 body {
     font-family: "Kanit", Arial, sans-serif;
     font-weight: 20;
-    background-color: #dbdbdb;
+    background-color: #d7dbdd;
     display: flex;
     justify-content: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อชิดซ้าย */
     align-items: flex-start; /* เลื่อนการจัดให้อยู่ด้านบน */
@@ -60,7 +60,7 @@ body {
 }
 
 .label {
-    background-color: #dbdbdb;
+    background-color: #d7dbdd;
     width: 20%;
     text-align: center;
 }
@@ -73,7 +73,7 @@ body {
 .labeltext {
     text-align: center;
     width: 70px;
-    background-color: #dbdbdb;
+    background-color: #d7dbdd;
     /*background-color: #ffe4e1;*/
     border-right: none; /* ไม่แสดงเส้นขอบด้านใน */ 
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
@@ -92,7 +92,7 @@ body {
 
 .input-cell1 {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
-    background-color: #dbdbdb;
+    background-color: #d7dbdd;
     flex: 1;
     border-right: 1px solid black;
     border-left: 1px solid black;
@@ -100,6 +100,15 @@ body {
     width: 100%; /* ขยายให้เต็ม */
     text-align: center;
 }
+/* สลับสีพื้นหลังของ .input-cell1 */
+.row:nth-child(odd) .input-cell1 {
+    background-color: #d7dbdd; /* สีฟ้าอ่อน */
+}
+
+.row:nth-child(even) .input-cell1 {
+    background-color: #ecf0f1; /* สีชมพูอ่อน */
+}
+
 /* ตั้งค่าเริ่มต้นให้ input ทุกตัวข้อความอยู่ทางซ้าย */
 input[type="text"] {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
