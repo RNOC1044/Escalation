@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Tooltip } from 'react-tooltip';
+import './styles.css';
 
 const Dropdown = ({ selectedValue, setSelectedValue }) => {
     const [tooltipContent, setTooltipContent] = useState('เลือกสถานะเพื่อเปลี่ยนสี');
@@ -13,7 +14,8 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
         const colorClasses = [
             'header-green', 'header-yellow', 'header-rgb', 'header-red',
             'dropdown-green', 'dropdown-yellow', 'dropdown-rgb', 'dropdown-red',
-            'status-labelgreen', 'status-labelyellow', 'status-labelrgb', 'status-labelred'
+            'status-labelgreen', 'status-labelyellow', 'status-labelrgb', 'status-labelred',
+            'pending-text'
         ];
         
         // ลบคลาสสีเก่าออก
@@ -37,8 +39,8 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
             setTooltipContent('วงจร: Down ไม่เกิน 4 ชม.');
         } else if (selectedValue === 'value3') {
             dropdown.classList.add('dropdown-rgb');
-            header.classList.add('header-rgb');
-            headerInput2.classList.add('header-rgb');
+            header.classList.add('header-rgb', 'pending-text'); // เพิ่มคลาสสีขาว
+            headerInput2.classList.add('header-rgb', 'pending-text'); // เพิ่มคลาสสีขาว
             label.classList.add('status-labelrgb');
             setTooltipContent('หยุดเวลา: Pending');
         } else if (selectedValue === 'value4') {

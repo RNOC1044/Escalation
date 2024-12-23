@@ -96,7 +96,7 @@ body {
     flex: 1;
     border-right: 1px solid black;
     border-left: 1px solid black;
-    padding: 15px;
+    padding: 5px;
     width: 100%; /* ขยายให้เต็ม */
     text-align: center;
 }
@@ -149,7 +149,7 @@ input[type="textone"] {
 
 }
 
-.transparent-input {
+.transparent-input { /*ปรับช่องกรอกข้อความ*/
     font-family: 'Bai Jamjuree', Arial, sans-serif;
     font-size: 16px;
     width: 100%;
@@ -162,7 +162,7 @@ input[type="textone"] {
     overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
-    /*line-height: 1.5; /* ระยะห่างระหว่างบรรทัด */
+    margin: 1px 0;
 }
 
 select {
@@ -240,6 +240,11 @@ select {
     background-color: red;
     color: white;
 }
+
+.pending-text {
+    color: white; /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
+}
+
 .resized-image {
     width: 30px;  /* ปรับขนาดความกว้างเป็น 30 พิกเซล */
     height: 30px; /* ปรับขนาดความสูงเป็น 30 พิกเซล */
@@ -361,7 +366,7 @@ textarea.transparent-input {
     word-wrap: break-word; /* ตัดคำที่ยาว */
     overflow-wrap: break-word; /* จัดการคำล้น */
     overflow: hidden; /* ซ่อน scroll bar */
-    /*box-sizing: border-box;*/
+    margin-bottom: 0.5px; /* เพิ่มระยะห่างด้านล่าง */
     padding: 10px;
 }
 
