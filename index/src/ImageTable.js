@@ -6,7 +6,6 @@ const ImageTable = ({ toggleThermometer, toggleThermometerOrange, toggleThermome
         const newSelectedCells = [...selectedCells];
         newSelectedCells[index] = !newSelectedCells[index];
         setSelectedCells(newSelectedCells);
-
         // ตรวจสอบ index เพื่อเปลี่ยนภาพปรอทตามเซลล์ที่คลิก
         if (index === 1 && toggleThermometer) {
             toggleThermometer();

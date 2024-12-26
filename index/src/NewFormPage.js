@@ -28,9 +28,6 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
     }
 
     try {
-      // const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/search`, {
-      //   params: { query: searchTerm },
-      // });
       const response = await axios.get(SERVER_URL +'search', { params: { query: searchTerm } });    
       console.log(response);    
 

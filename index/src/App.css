@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #b0e0e6;
+  color: #ffffff;
 }
 
 .App-link {
@@ -38,13 +38,13 @@
 }
 
 body {
-  background: #d0f1f5;
+  background: #ffffff;
   margin: 0;
   height: 100vh;
 }
 
 .sidebar {
-  background: linear-gradient(to bottom, #d0f1f5, #c7c8f3);
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
   width: 200px;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);

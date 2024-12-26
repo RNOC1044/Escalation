@@ -39,8 +39,8 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
             setTooltipContent('วงจร: Down ไม่เกิน 4 ชม.');
         } else if (selectedValue === 'value3') {
             dropdown.classList.add('dropdown-rgb');
-            header.classList.add('header-rgb', 'pending-text'); // เพิ่มคลาสสีขาว
-            headerInput2.classList.add('header-rgb', 'pending-text'); // เพิ่มคลาสสีขาว
+            header.classList.add('header-rgb'); 
+            headerInput2.classList.add('header-rgb'); 
             label.classList.add('status-labelrgb');
             setTooltipContent('หยุดเวลา: Pending');
         } else if (selectedValue === 'value4') {

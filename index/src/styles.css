@@ -4,23 +4,22 @@ body {
     background-color: #d7dbdd;
     display: flex;
     justify-content: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อชิดซ้าย */
-    align-items: flex-start; /* เลื่อนการจัดให้อยู่ด้านบน */
-    height: auto; /* ตั้งค่าเป็น auto เพื่อให้หน้าจอขยายตามเนื้อหา */
+    align-items: flex-start; 
+    height: auto; 
     margin: 0;
-    overflow-x: hidden; /* ป้องกันการเลื่อนในแนวนอน */
-    overflow-y: auto; /* อนุญาตให้เลื่อนในแนวตั้ง */
+    overflow-x: hidden; 
+    overflow-y: auto; 
 }
 
 .form-container {
     background-color: transparent;
-    width: 175%; /* ขยายให้เต็มหน้าจอ */
-    max-width: 2000px; /* กำหนดความกว้างสูงสุด */
-    margin: 0; /* ลบ margin เพื่อชิดซ้าย */
+    width: 175%; 
+    max-width: 2000px; 
+    margin: 0; 
     padding: 20px;
     border-radius: 5px;
-    overflow-x: auto; /* อนุญาตให้เลื่อนในแนวนอน */
-    overflow-y: visible;
-    
+    overflow-x: auto; 
+    overflow-y: visible;    
 }
 
 .row {
@@ -74,7 +73,6 @@ body {
     text-align: center;
     width: 70px;
     background-color: #d7dbdd;
-    /*background-color: #ffe4e1;*/
     border-right: none; /* ไม่แสดงเส้นขอบด้านใน */ 
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
 }
@@ -86,7 +84,7 @@ body {
     border-right: 1px solid black;
     border-left: 1px solid black;
     padding: 15px;
-    width: 100%; /* ขยายให้เต็ม */
+    width: 100%; 
     text-align: center;
 }
 
@@ -97,16 +95,8 @@ body {
     border-right: 1px solid black;
     border-left: 1px solid black;
     padding: 5px;
-    width: 100%; /* ขยายให้เต็ม */
+    width: 100%; 
     text-align: center;
-}
-/* สลับสีพื้นหลังของ .input-cell1 */
-.row:nth-child(odd) .input-cell1 {
-    background-color: #d7dbdd; /* สีฟ้าอ่อน */
-}
-
-.row:nth-child(even) .input-cell1 {
-    background-color: #ecf0f1; /* สีชมพูอ่อน */
 }
 
 /* ตั้งค่าเริ่มต้นให้ input ทุกตัวข้อความอยู่ทางซ้าย */
@@ -250,10 +240,6 @@ select {
     color: white;
 }
 
-.pending-text {
-    color: white; /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
-}
-
 .resized-image {
     width: 30px;  /* ปรับขนาดความกว้างเป็น 30 พิกเซล */
     height: 30px; /* ปรับขนาดความสูงเป็น 30 พิกเซล */
@@ -322,20 +308,18 @@ select {
 
 .button-container {
     position: fixed; /* แก้จาก absolute เป็น fixed */
-    right: 20px; /* ชิดขอบขวา */
-    bottom: 20px; /* ชิดขอบล่าง */
+    right: 20px; 
+    bottom: 20px; 
     display: flex;
-    gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
-    flex-direction: column; /* จัดปุ่มให้เรียงในแนวตั้ง */
-    z-index: 10; /* ทำให้ปุ่มอยู่ด้านบนสุด */
+    gap: 10px; 
+    flex-direction: column; 
+    z-index: 10; 
 }
 
-/*--------------------------------*/
 /* จัดรูปแบบเมื่อเลือกช่อง */
 .selected-input {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
     background-color: #f0e68c; /* สีพื้นหลังเมื่อเลือกช่อง */
-    /*border: 2px solid black; /* เส้นขอบสีแดงเมื่อเลือกช่อง */
 }
 
 /* ปุ่มลบ */
@@ -350,19 +334,11 @@ select {
     font-size: 14px;
     
 }
-/*.button-container {
-    position: absolute; /* ตั้งตำแหน่งให้ absolute */
-    /*right: 20px; /* วางปุ่มให้ชิดขอบขวา */
-    /*bottom: 20px; /* วางปุ่มให้ชิดขอบล่าง */
-    /*display: flex;
-    /*gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */ 
-
 
 .green {
-    background-color: #00b050; /* สีเขียว */
-    color: white; /* เปลี่ยนสีตัวอักษรเป็นสีขาวเพื่อให้มองเห็นได้ชัด */
+    background-color: #00b050; 
+    color: white; 
 }
-
 
 textarea.transparent-input {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
@@ -379,24 +355,22 @@ textarea.transparent-input {
     padding: 10px;
 }
 
-
 .check-icon {
-    width: 50px; /* ปรับขนาดของไอคอนให้เหมาะสม */
+    width: 50px; 
     height: 50px;
-    margin: 0; /* ลบ margin ออกเพื่อให้ชิดกับช่อง */
+    margin: 0; 
     position: relative;
 }
 
 .cell2.labeltext {
     display: flex;
-    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
-    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .gray-area {
     position: relative; /* ทำให้คอนเทนเนอร์นี้เป็นตำแหน่งอ้างอิงสำหรับตำแหน่ง absolute ของปรอท */
     border-radius: 8px;
-    /*margin-bottom: 10px; /* ระยะห่างจากองค์ประกอบด้านล่าง */
 }
 
 .thermometer-icon {

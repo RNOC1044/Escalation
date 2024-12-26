@@ -70,7 +70,6 @@ const FormComponent = ({ selectedData, onSave }) => {
                 div.style.whiteSpace = 'pre-wrap'; // รักษาบรรทัดใหม่
                 div.style.wordWrap = 'break-word'; // ตัดคำ
                 div.style.overflowWrap = 'break-word'; // จัดการคำล้น
-                //div.style.lineHeight = '1.5'; // ระยะห่างระหว่างบรรทัด
                 div.style.fontSize = window.getComputedStyle(textarea).fontSize; // ใช้ขนาดฟอนต์เดียวกัน
                 div.style.fontFamily = window.getComputedStyle(textarea).fontFamily; // ใช้ฟอนต์เดียวกัน
                 div.style.padding = window.getComputedStyle(textarea).padding; // ใช้ padding เดียวกัน
@@ -83,8 +82,7 @@ const FormComponent = ({ selectedData, onSave }) => {
                 div.style.height = textarea.offsetHeight + 'px';
                 div.innerText = textarea.value; // ใส่ข้อความจาก textarea
                 div.style.textAlign = 'left'; // จัดข้อความชิดซ้าย
-                div.style.fontWeight = '360'; // ข้อความตัวหนา
-                
+                div.style.fontWeight = '360'; // ข้อความตัวหนา                
                 textarea.style.visibility = 'hidden'; // ซ่อน textarea ชั่วคราว
                 textarea.parentElement.appendChild(div);
             });
