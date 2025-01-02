@@ -1,6 +1,6 @@
 /* HomePage.css */
 body {
-  background-color: white; 
+  background-color: rgb(252, 2, 2); 
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -18,9 +18,9 @@ body {
   
   .styled-table th,
   .styled-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #f2f3f4;
     padding: 3px;
-    min-width: 70px; /* กำหนดขนาดความกว้างขั้นต่ำของแต่ละคอลัมน์ */
+    min-width: 70px; 
   }
   
   .styled-table th {
@@ -28,20 +28,29 @@ body {
   }
   
   .styled-table th.up-time {
-    background-color: #90ee90; /* สีเขียวอ่อน */
+    background-color: #41ff41; /* สีเขียวอ่อน */
+    text-align: center;
   }
-  
+
   .styled-table th.down-time {
-    background-color: #ffff99; /* สีเหลืองอ่อน */
+    background-color: #f7dc6f; /* สีเหลืองอ่อน */
+    text-align: center;
   }
-  
-  .styled-table tr:nth-child(even) {
+  .styled-table th.id{text-align: center;}
+  .styled-table th.order{text-align: center;}
+  .styled-table th.name{text-align: center;}
+  .styled-table th.edit{text-align: center;}
+  .styled-table th.ar{text-align: center;}
+  .styled-table th.action{text-align: center;}
+  .styled-table th.tk{text-align: center;}
+
+  /*.styled-table tr:nth-child(even) {
     background-color: #ffffff;
   }
   
   .styled-table tr:hover {
     background-color: #ffffff;
-  }
+  }*/
   
   .capture-form {
     visibility: hidden;

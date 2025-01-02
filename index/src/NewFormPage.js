@@ -85,7 +85,7 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
               style={{ cursor: 'pointer', textDecoration: 'underline', color: 'blue' }}
               onClick={() => handleClickID(result)}
             >
-            customer_id: {result.customer_id}
+            Customer_id: {result.customer_id}
             </span>
             <br />
             NAME: {result.name}

@@ -44,7 +44,7 @@ body {
 }
 
 .sidebar {
-  background: linear-gradient(to bottom, #ffffff, #ffffff);
+  background: linear-gradient(to bottom, #eaeded, #ffffff);
   width: 200px;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -56,6 +56,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 20px;
+  text-align: center
 }
 
 .sidebar ul {

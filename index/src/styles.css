@@ -99,6 +99,15 @@ body {
     text-align: center;
 }
 
+/* สลับสีพื้นหลังของ .input-cell1 */
+.row:nth-child(odd) .input-cell1 {
+    background-color: #ecf0f1; /* สีฟ้าอ่อน */
+}
+
+.row:nth-child(even) .input-cell1 {
+    background-color: #d7dbdd; /* สีชมพูอ่อน */
+}
+
 /* ตั้งค่าเริ่มต้นให้ input ทุกตัวข้อความอยู่ทางซ้าย */
 input[type="text"] {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
