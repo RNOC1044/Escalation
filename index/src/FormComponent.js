@@ -82,7 +82,7 @@ const FormComponent = ({ selectedData, onSave }) => {
                 div.style.height = textarea.offsetHeight + 'px';
                 div.innerText = textarea.value; // ใส่ข้อความจาก textarea
                 div.style.textAlign = 'left'; // จัดข้อความชิดซ้าย
-                div.style.fontWeight = '360'; // ข้อความตัวหนา                
+                div.style.fontWeight = '450'; // ข้อความตัวหนา                
                 textarea.style.visibility = 'hidden'; // ซ่อน textarea ชั่วคราว
                 textarea.parentElement.appendChild(div);
             });

@@ -46,7 +46,7 @@ body {
 
 .header {
     background-color: #00b050;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     border-right: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านซ้าย */
@@ -83,6 +83,7 @@ body {
     flex: 1;
     border-right: 1px solid black;
     border-left: 1px solid black;
+    /*border-top: 1px solid black;*/
     padding: 15px;
     width: 100%; 
     text-align: center;
@@ -90,6 +91,8 @@ body {
 
 .input-cell1 {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
+    font-size: 2px;
+    font-weight: bold;
     background-color: #d7dbdd;
     flex: 1;
     border-right: 1px solid black;
@@ -101,11 +104,11 @@ body {
 
 /* สลับสีพื้นหลังของ .input-cell1 */
 .row:nth-child(odd) .input-cell1 {
-    background-color: #ecf0f1; /* สีฟ้าอ่อน */
+    background-color: #ecf0f1;
 }
 
 .row:nth-child(even) .input-cell1 {
-    background-color: #d7dbdd; /* สีชมพูอ่อน */
+    background-color: #d7dbdd; 
 }
 
 /* ตั้งค่าเริ่มต้นให้ input ทุกตัวข้อความอยู่ทางซ้าย */
@@ -154,7 +157,7 @@ input[type="textone"] {
     padding: 8px; /* เพิ่มระยะห่างด้านใน */
     width: 100%; /* ให้ขยายเต็มความกว้าง */
     box-sizing: border-box; /* รวม padding ในขนาด */
-
+    border-bottom: 1px solid black !important; /*เพิ่มเส้นขอบด้านล่างของheader2*/
 }
 
 .transparent-input { /*ปรับช่องกรอกข้อความ*/
