@@ -387,7 +387,8 @@ textarea.transparent-input {
 
 .thermometer-icon {
     position: absolute; /* ทำให้ภาพปรอทอยู่ในตำแหน่ง absolute */
-    right: 60px; /* ตำแหน่งห่างจากขอบขวา */
+    right: 70px; /* ตำแหน่งห่างจากขอบขวา */
+    /*right: 245px; /* ตำแหน่งห่างจากขอบขวา */
     top: 80px; /* ตำแหน่งห่างจากด้านบน */
     width: 67px; /* กำหนดขนาดของปรอท */
     height: auto;

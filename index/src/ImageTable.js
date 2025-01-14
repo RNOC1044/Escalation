@@ -28,16 +28,16 @@ const ImageTable = ({ toggleThermometer, toggleThermometerOrange, toggleThermome
                 </tr>
                 <tr>
                     <td className={`hour1 ${selectedCells[0] ? 'selected' : ''}`} rowSpan="2" onClick={() => toggleColor(0)}>
-                        ผส.อกก<br />ผส.บกก
+                        ผส.บตน.<br />ผส.บลตน.
                     </td>
                     <td className={`hour2 ${selectedCells[1] ? 'selected' : ''}`} rowSpan="2" onClick={() => toggleColor(1)}>
-                        ผจก.ภก
+                        ผจก.บตน.
                     </td>
                     <td className={`hour3 ${selectedCells[2] ? 'selected' : ''}`} onClick={() => toggleColor(2)}>
-                        ซกญ.
+                        ชจญ.ตน.
                     </td>
                     <td className={`hour4 ${selectedCells[3] ? 'selected' : ''}`} rowSpan="2" onClick={() => toggleColor(3)}>
-                        รองบ.
+                        รจญ.น.
                     </td>
                 </tr>
                 <tr></tr>
