@@ -7,9 +7,9 @@ import Dropdown from './Dropdown';
 import InputList from './InputList';
 import ButtonContainer from './ButtonContainer';
 import ImageTable from './ImageTable';
-import greenThermometer from './assets/images/G-Photoroom.png';
-import yellowThermometer from './assets/images/Y-Photoroom.png';
-import orangeThermometer from './assets/images/O-Photoroom.png';
+import greenThermometer from './assets/images/G.png';
+import yellowThermometer from './assets/images/Y.png';
+import orangeThermometer from './assets/images/O.png';
 import redThermometer from './assets/images/R.png';
 
 const FormComponent = ({ selectedData, onSave }) => {

@@ -10,12 +10,12 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
         const header = document.querySelector('.header');
         const headerInput2 = document.querySelector('.header-input2');
         const label = document.getElementById('status-label');
-
+    
         const colorClasses = [
             'header-green', 'header-yellow', 'header-rgb', 'header-red',
             'dropdown-green', 'dropdown-yellow', 'dropdown-rgb', 'dropdown-red',
             'status-labelgreen', 'status-labelyellow', 'status-labelrgb', 'status-labelred',
-            'pending-text'
+            'text-white'
         ];
         
         // ลบคลาสสีเก่าออก
@@ -23,7 +23,7 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
         headerInput2.classList.remove(...colorClasses);
         label.classList.remove(...colorClasses);
         dropdown.classList.remove(...colorClasses);
-
+    
         // เปลี่ยนสีและข้อความ tooltip
         if (selectedValue === 'value1') {
             dropdown.classList.add('dropdown-green');
@@ -39,8 +39,8 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
             setTooltipContent('วงจร: Down ไม่เกิน 4 ชม.');
         } else if (selectedValue === 'value3') {
             dropdown.classList.add('dropdown-rgb');
-            header.classList.add('header-rgb'); 
-            headerInput2.classList.add('header-rgb'); 
+            header.classList.add('header-rgb', 'text-white'); // เพิ่ม text-white
+            headerInput2.classList.add('header-rgb', 'text-white'); // เพิ่ม text-white
             label.classList.add('status-labelrgb');
             setTooltipContent('หยุดเวลา: Pending');
         } else if (selectedValue === 'value4') {
@@ -51,7 +51,7 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
             setTooltipContent('วงจร:DOWN เกิน 4 ชม.');
         }
     }, [selectedValue]);
-
+    
     return (
         <div className="row">
             <div className="cell label1" id="status-label">สถานะ</div>
