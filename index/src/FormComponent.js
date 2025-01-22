@@ -130,7 +130,7 @@ const FormComponent = ({ selectedData, onSave }) => {
         setUpTime(selectedData.upTime || '');
         setDownTime(selectedData.downTime || '');
         setFaultTime(selectedData.faultTime || '');
-        setTextValues(selectedData.textValues || []);
+        setTextValues(selectedData.textValues || '');
         setSelectedCells(selectedData.selectedCells || Array(8).fill(false));
         setSelectedValue(selectedData.selectedValue || 'value1');
         setIsYellow(selectedData.isYellow || false);
@@ -250,8 +250,8 @@ useEffect(() => {
   
   return (
     <div ref={formRef} className="form-container">
-      <HeaderInput value={input} onChange={(e) => setInput(e.target.value)} placeholder="Input" className="header" />
-      <HeaderInput value={input2} onChange={(e) => setInput2(e.target.value)} placeholder="Input 2" className="header-input2" />
+      <HeaderInput value={input} onChange={(e) => setInput(e.target.value)} selectedValue={selectedValue} placeholder="Input" className="header" />
+      <HeaderInput value={input2} onChange={(e) => setInput2(e.target.value)} selectedValue={selectedValue} placeholder="Input 2" className="header-input2" />
 
       <div className="gray-area">
         <img src={thermometerImage} alt="Thermometer" className="thermometer-icon" />
