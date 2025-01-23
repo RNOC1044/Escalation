@@ -39,14 +39,14 @@ const Dropdown = ({ selectedValue, setSelectedValue }) => {
             setTooltipContent('วงจร: Down ไม่เกิน 4 ชม.');
         } else if (selectedValue === 'value3') {
             dropdown.classList.add('dropdown-rgb');
-            header.classList.add('header-rgb', 'text-white'); // เพิ่ม text-white
-            headerInput2.classList.add('header-rgb', 'text-white'); // เพิ่ม text-white
-            label.classList.add('status-labelrgb');
+            header.classList.add('header-rgb'); 
+            headerInput2.classList.add('header-rgb', 'text-white');
+            label.classList.add('status-labelrgb', 'text-white');
             setTooltipContent('หยุดเวลา: Pending');
         } else if (selectedValue === 'value4') {
             dropdown.classList.add('dropdown-red');
-            header.classList.add('header-red');
-            headerInput2.classList.add('header-red');
+            header.classList.add('header-red', 'text-white');
+            headerInput2.classList.add('header-red', 'text-white');
             label.classList.add('status-labelred');
             setTooltipContent('วงจร:DOWN เกิน 4 ชม.');
         }

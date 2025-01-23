@@ -10,7 +10,14 @@ body {
     overflow-x: hidden; 
     overflow-y: auto; 
 }
-
+/*@font-face {
+    font-family: "...";   
+    src: local("TAVIRAJ-REGULAR.otf"),
+      url(".assets/front/TAVIRAJ-REGULAR.otf") format("opentype");
+  
+      font-weight: normal;
+      font-style: normal;
+  }*/
 .form-container {
     background-color: transparent;
     width: 175%; 
@@ -46,7 +53,7 @@ body {
 
 .header {
     background-color: #00b050;
-    color: white !important;
+    color: white;
     text-align: center;
     border-right: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านซ้าย */
@@ -161,6 +168,7 @@ input[type="textone"] {
     width: 100%; /* ให้ขยายเต็มความกว้าง */
     box-sizing: border-box; /* รวม padding ในขนาด */
     border-bottom: 1px solid black !important; /*เพิ่มเส้นขอบด้านล่างของheader2*/
+    color: white;
 }
 
 .transparent-input { /*ปรับช่องกรอกข้อความ*/
@@ -224,7 +232,7 @@ select {
 }
 .header-green {
     background-color: #00b050;
-    color: white;
+    color: black;
 }
 .header-yellow {
     background-color: yellow;
@@ -237,9 +245,6 @@ select {
 .header-red{
     background-color: red;
     color: white;
-}
-.text-white {
-    color: white !important; /* ใช้เปลี่ยนข้อความเป็นสีขาว */
 }
 .status-labelgreen{
     background-color: #00b050;
@@ -432,11 +437,15 @@ textarea.transparent-input {
     border: none;
   }
   
-  .resized-image {
+.resized-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     display: block;
     margin: 0 auto;
   }
-  
+  .text-white {
+    color: white;
+}
+
+
