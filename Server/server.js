@@ -10,17 +10,17 @@ app.use(cors());
 app.use(express.json());
 
 const db = new Pool({
- //host: '',
-  //user: '',
-  //password: '',
-  //database: '',
- //port: ,
+ host: 'localhost',
+ user: 'postgres',
+ password: 'RNOC0144',
+ database: 'postgresdb',
+ port:5432 ,
 
-  host: process.env.DB_HOST || 'dpg-ctd4lgpu0jms73f2e3q0-a.singapore-postgres.render.com',
-  user: process.env.DB_USER || 'postgresdb_2vxg_user',
-  password: process.env.DB_PASSWORD || 'xtWcwoYlT2h4FZQ5CZCyYFsaccocBvnW',  
-  database: process.env.DB_NAME || 'postgresdb_2vxg',
-  port: process.env.DB_PORT || 5432,
+  //host: process.env.DB_HOST || 'dpg-ctd4lgpu0jms73f2e3q0-a.singapore-postgres.render.com',
+  //user: process.env.DB_USER || 'postgresdb_2vxg_user',
+  //password: process.env.DB_PASSWORD || 'xtWcwoYlT2h4FZQ5CZCyYFsaccocBvnW',  
+  //database: process.env.DB_NAME || 'postgresdb_2vxg',
+  //port: process.env.DB_PORT || 5432,
 });
 
 db.on('error', (err) => {
