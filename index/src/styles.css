@@ -10,7 +10,14 @@ body {
     overflow-x: hidden; 
     overflow-y: auto; 
 }
-
+/*@font-face {
+    font-family: "...";   
+    src: local("TAVIRAJ-REGULAR.otf"),
+      url(".assets/front/TAVIRAJ-REGULAR.otf") format("opentype");
+  
+      font-weight: normal;
+      font-style: normal;
+  }*/
 .form-container {
     background-color: transparent;
     width: 175%; 
@@ -46,7 +53,7 @@ body {
 
 .header {
     background-color: #00b050;
-    color: rgb(0, 0, 0);
+    color: white;
     text-align: center;
     border-right: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านซ้าย */
@@ -56,10 +63,11 @@ body {
 .full-width {
     flex: 1;
 }
-
+/*Ticket No. ถึง Down Time*/
 .label {
     background-color: #d7dbdd;
     width: 20%;
+    height: 40px;
     text-align: center;
 }
 .label1 {
@@ -75,7 +83,7 @@ body {
     border-right: none; /* ไม่แสดงเส้นขอบด้านใน */ 
     border-left: 1px solid black; /* เพิ่มเส้นขอบด้านขวา */
 }
-
+/*เนื้อหาตั้งแต่Ticket No.- Down Time*/
 .input-cell {
     font-family: 'Bai Jamjuree', Arial, sans-serif;
     background-color: #C6E0B4;
@@ -85,6 +93,7 @@ body {
     /*border-top: 1px solid black;*/
     padding: 15px;
     width: 100%; 
+    height: 38px;
     text-align: center;
 }
 
@@ -111,9 +120,11 @@ body {
 }
 
 /* ตั้งค่าเริ่มต้นให้ input ทุกตัวข้อความอยู่ทางซ้าย */
-input[type="text"] {
+/* ปรับในส่วนcatidและชื่อ */
+input[type="text"] { 
     font-family: 'Bai Jamjuree', Arial, sans-serif;
     font-size: 18px;
+    font-weight: 430;
     width: 100%;
     padding: 8px;
     border: none;
@@ -157,6 +168,7 @@ input[type="textone"] {
     width: 100%; /* ให้ขยายเต็มความกว้าง */
     box-sizing: border-box; /* รวม padding ในขนาด */
     border-bottom: 1px solid black !important; /*เพิ่มเส้นขอบด้านล่างของheader2*/
+    color: white;
 }
 
 .transparent-input { /*ปรับช่องกรอกข้อความ*/
@@ -164,7 +176,7 @@ input[type="textone"] {
     font-size: 16px;
     width: 100%;
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
     resize: none;
     white-space: pre-wrap; /* รักษาบรรทัดใหม่ */
     word-wrap: break-word; /* ตัดคำ */
@@ -228,7 +240,7 @@ select {
 }
 .header-rgb {
     background-color: #7030A0;
-    color: white;
+    color: white !important;
 }
 .header-red{
     background-color: red;
@@ -386,10 +398,10 @@ textarea.transparent-input {
 
 .thermometer-icon {
     position: absolute; /* ทำให้ภาพปรอทอยู่ในตำแหน่ง absolute */
-    right: 70px; /* ตำแหน่งห่างจากขอบขวา */
-    /*right: 245px; /* ตำแหน่งห่างจากขอบขวา */
+    /*right: 70px; /* ตำแหน่งห่างจากขอบขวา */
+    right: 180px; /* ตำแหน่งห่างจากขอบขวา */
     top: 80px; /* ตำแหน่งห่างจากด้านบน */
-    width: 67px; /* กำหนดขนาดของปรอท */
+    width: 95px; /* กำหนดขนาดของปรอท */
     height: auto;
     z-index: 10; /* เพิ่มค่า z-index เพื่อให้ภาพอยู่ด้านหน้าข้อความ */
     opacity: 1; /* ปรับความโปร่งใสเล็กน้อย (ถ้าต้องการ) */
@@ -425,11 +437,15 @@ textarea.transparent-input {
     border: none;
   }
   
-  .resized-image {
+.resized-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     display: block;
     margin: 0 auto;
   }
-  
+  .text-white {
+    color: white;
+}
+
+
