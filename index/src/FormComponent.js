@@ -11,6 +11,7 @@ import greenThermometer from './assets/images/G.png';
 import yellowThermometer from './assets/images/Y.png';
 import orangeThermometer from './assets/images/O.png';
 import redThermometer from './assets/images/R.png';
+//import { useCapture } from 'react-capture';
 
 const FormComponent = ({ selectedData, onSave }) => {
   const [inputs, setInputs] = useState([]);
@@ -32,12 +33,39 @@ const FormComponent = ({ selectedData, onSave }) => {
   const formRef = useRef(null); // สร้าง useRef สำหรับฟอร์ม
   //const q = 'some value';
   
+  //const CaptureComponent = () => {
+    const captureRef = useRef();
+  
+    const handleCapture = () => {
+      const element = captureRef.current;
+    
+      // ตรวจสอบว่า element มีค่าและเป็น DOM ที่ถูกต้อง
+      if (element) {
+        html2canvas(element).then((canvas) => {
+          // แสดงผลในรูปแบบ Canvas
+          //document.body.appendChild(canvas);
+    
+          // หรือแปลงเป็นภาพ PNG และให้ผู้ใช้ดาวน์โหลด
+          const img = canvas.toDataURL("image/png");
+          const link = document.createElement("a");
+          link.href = img;
+          link.download = "capture.png";
+          link.click();
+        });
+      } else {
+        console.error("The element to capture is not valid.");
+      }
+    };
+    
+  //}
   const handleDownloadCapture = async () => {
     if (formRef.current) {
       try {
         const canvas = await html2canvas(formRef.current, {
           scale: 2, // เพิ่มความละเอียด
           useCORS: true,
+          allowTaint: true,
+          taintTest: false,
         });
   
         // แปลง canvas เป็นภาพ PNG
@@ -92,6 +120,7 @@ const FormComponent = ({ selectedData, onSave }) => {
                 scale: 2,
                 useCORS: true,
                 allowTaint: true,
+                taintTest: false,
             });
 
             // คืนค่า visibility ของ textarea
@@ -249,7 +278,8 @@ useEffect(() => {
 
   
   return (
-    <div ref={formRef} className="form-container">
+    <div  className="form-container"> 
+    <div ref={formRef} style={{ padding: '20px', background: 'lightblue' }}>
       <HeaderInput value={input} onChange={(e) => setInput(e.target.value)} selectedValue={selectedValue} placeholder="Input" className="header" />
       <HeaderInput value={input2} onChange={(e) => setInput2(e.target.value)} selectedValue={selectedValue} placeholder="Input 2" className="header-input2" />
 
@@ -289,6 +319,9 @@ useEffect(() => {
         isYellow={isYellow}
         handleDownloadCapture={handleDownloadCapture}
       />
+      
+      </div>
+      <button onClick={handleCapture}>Capture</button>
     </div>
   );
 };
