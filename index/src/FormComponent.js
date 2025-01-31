@@ -58,7 +58,7 @@ const FormComponent = ({ selectedData, onSave }) => {
   };
 
   // ฟังก์ชันแคปเจอร์และคัดลอกไปยังคลิปบอร์ด
-  const handleCaptureAndCopy = async () => {
+  const handleCaptureAndSendToTelegram = async () => {
     if (formRef.current) {
         try {
             // ดึงทุก textarea
@@ -82,7 +82,7 @@ const FormComponent = ({ selectedData, onSave }) => {
                 div.style.height = textarea.offsetHeight + 'px';
                 div.innerText = textarea.value; // ใส่ข้อความจาก textarea
                 div.style.textAlign = 'left'; // จัดข้อความชิดซ้าย
-                div.style.fontWeight = '450'; // ข้อความตัวหนา                
+                div.style.fontWeight = '450'; // ข้อความตัวหนา
                 textarea.style.visibility = 'hidden'; // ซ่อน textarea ชั่วคราว
                 textarea.parentElement.appendChild(div);
             });
@@ -101,21 +101,33 @@ const FormComponent = ({ selectedData, onSave }) => {
                 if (div) textarea.parentElement.removeChild(div);
             });
 
-            // แปลง canvas เป็น Blob และคัดลอกไปยังคลิปบอร์ด
+            // แปลง canvas เป็น Blob
             const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
-            if (navigator.clipboard && navigator.clipboard.write) {
-                await navigator.clipboard.write([
-                    new ClipboardItem({
-                        'image/png': blob,
-                    }),
-                ]);
-                alert('คัดลอกภาพไปยังคลิปบอร์ดสำเร็จแล้ว!');
+
+            // ส่งภาพไปยัง Telegram Bot
+            const formData = new FormData();
+            formData.append('chat_id', '-4733819951'); // ใส่ chat_id หรือ user_id ที่ต้องการส่งไป
+            formData.append('photo', blob, 'captured-image.png');
+
+            const telegramToken = '7535313109:AAEf-w3PczGAOdzqAzfEemZ5528RFebnilE'; // ใส่ Telegram Bot Token ของคุณ
+            const telegramApiUrl = `https://api.telegram.org/bot${telegramToken}/sendPhoto`;
+
+            // ส่งคำขอ HTTP ไปยัง Telegram API
+            const response = await fetch(telegramApiUrl, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.ok) {
+                alert('ส่งภาพไปยัง Telegram สำเร็จ!');
             } else {
-                alert('เบราว์เซอร์ของคุณไม่รองรับการคัดลอกภาพไปยังคลิปบอร์ด');
+                alert('ไม่สามารถส่งภาพไปยัง Telegram ได้');
             }
         } catch (error) {
-            console.error('เกิดข้อผิดพลาดในการคัดลอกภาพ:', error);
-            alert('ไม่สามารถคัดลอกภาพได้');
+            console.error('เกิดข้อผิดพลาดในการส่งภาพไปยัง Telegram:', error);
+            alert('ไม่สามารถส่งภาพไปยัง Telegram ได้');
         }
     }
 };
@@ -284,7 +296,8 @@ useEffect(() => {
         addInput={addInput}
         deleteSelectedInput={deleteSelectedInput}
         handleSave={handleSave}
-        handleCaptureAndCopy={handleCaptureAndCopy}
+        handleCaptureAndSendToTelegram={handleCaptureAndSendToTelegram}
+        //handleCaptureAndCopy={handleCaptureAndCopy}
         toggleThermometerAndButtonColor={toggleThermometerAndButtonColor}
         isYellow={isYellow}
         handleDownloadCapture={handleDownloadCapture}
