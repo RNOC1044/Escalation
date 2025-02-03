@@ -221,6 +221,9 @@ useEffect(() => {
       setDownTime(downtimeResult);
   }
 }, [faultTime]);
+    const handleDowntimeChange = (e) => {
+      setDownTime(e.target.value);
+    };
 
   // ฟังก์ชันสำหรับการบันทึกข้อมูล
   const handleSave = () => {
@@ -275,7 +278,7 @@ useEffect(() => {
         <FormRow label="จังหวัดที่รับผิดชอบ" inputName="province" value={province} onChange={(e) => setProvince(e.target.value)} />
         <FormRow label="Fault Time" inputName="faultTime" isDateTimePicker={true} value={faultTime} onChange={(e) => setFaultTime(e.target.value)} />
         <FormRow label="Up Time" inputName="upTime" value={upTime} onChange={(e) => setUpTime(e.target.value)} />
-        <FormRow label="Down Time" inputName="downTime" value={downTime} readOnly={true} />
+        <FormRow label="Down Time" inputName="downTime" value={downTime}  onChange={handleDowntimeChange}/*readOnly={true}*/ />
       </div>
 
       <Dropdown selectedValue={selectedValue} setSelectedValue={setSelectedValue} />
