@@ -18,7 +18,7 @@ body {
   
   .styled-table th,
   .styled-table td {
-    border: 1px solid #f2f3f4;
+    border: 1px solid #000080;
     padding: 3px;
     min-width: 70px; 
   }

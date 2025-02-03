@@ -5,7 +5,7 @@ const HomePage = ({ data, onDelete, onEdit }) => {
   console.log("Data received in HomePage:", data);
   return (
     <div>
-      <h1>Escalation Form </h1>
+      <h1 style={{ textAlign: 'center', background:'#ffff66', fontSize:'40px'}}>Escalation Form</h1>
       <table className="styled-table">
         <thead>
           <tr>
@@ -32,10 +32,10 @@ const HomePage = ({ data, onDelete, onEdit }) => {
             <td>{item.downTime}</td>
             <td>{item.lastEditedTime || 'N/A'}</td>
             <td className="action-buttons">
-              <button onClick={() => onEdit(index)} style={{ color: 'blue', cursor: 'pointer', marginRight: '10px' }}> 
+              <button onClick={() => onEdit(index)} style={{ background:'#6495ed',color: 'white', cursor: 'pointer', marginRight: '10px' }}> 
                 Edit
               </button>
-              <button onClick={() => onDelete(index)} style={{ color: 'red', cursor: 'pointer' }}>
+              <button onClick={() => onDelete(index)} style={{ background:'#f08080 ',color: 'black', cursor: 'pointer' }}>
                 Delete
               </button>
             </td>

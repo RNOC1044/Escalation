@@ -32,30 +32,6 @@ const FormComponent = ({ selectedData, onSave }) => {
   const [faultTime, setFaultTime] = useState('');
   const formRef = useRef(null); // สร้าง useRef สำหรับฟอร์ม
   //const q = 'some value';
-  
-  //const CaptureComponent = () => {
-    const captureRef = useRef();
-  
-    const handleCapture = () => {
-      const element = captureRef.current;
-    
-      // ตรวจสอบว่า element มีค่าและเป็น DOM ที่ถูกต้อง
-      if (element) {
-        html2canvas(element).then((canvas) => {
-          // แสดงผลในรูปแบบ Canvas
-          //document.body.appendChild(canvas);
-    
-          // หรือแปลงเป็นภาพ PNG และให้ผู้ใช้ดาวน์โหลด
-          const img = canvas.toDataURL("image/png");
-          const link = document.createElement("a");
-          link.href = img;
-          link.download = "capture.png";
-          link.click();
-        });
-      } else {
-        console.error("The element to capture is not valid.");
-      }
-    };
     
   //}
   const handleDownloadCapture = async () => {
@@ -291,7 +267,7 @@ useEffect(() => {
   
   return (
     <div  className="form-container"> 
-    <div ref={formRef} style={{ padding: '20px', background: 'lightblue' }}>
+    <div ref={formRef} >
       <HeaderInput value={input} onChange={(e) => setInput(e.target.value)} selectedValue={selectedValue} placeholder="Input" className="header" />
       <HeaderInput value={input2} onChange={(e) => setInput2(e.target.value)} selectedValue={selectedValue} placeholder="Input 2" className="header-input2" />
 
@@ -334,7 +310,7 @@ useEffect(() => {
       />
       
       </div>
-      <button onClick={handleCapture}>Capture</button>
+
     </div>
   );
 };
