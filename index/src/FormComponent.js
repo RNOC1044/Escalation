@@ -31,9 +31,7 @@ const FormComponent = ({ selectedData, onSave }) => {
   const [textValues, setTextValues] = useState([]);
   const [faultTime, setFaultTime] = useState('');
   const formRef = useRef(null); // สร้าง useRef สำหรับฟอร์ม
-  //const q = 'some value';
-    
-  //}
+
   const handleDownloadCapture = async () => {
     if (formRef.current) {
       try {

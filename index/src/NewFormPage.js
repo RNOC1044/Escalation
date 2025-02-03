@@ -56,9 +56,9 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
   if (selectedData) {
     return (
       <div>
-        <h2>{editData ? 'Edit Form' : 'New Form'}</h2>
+        <h2 style={{marginLeft:'20px', fontSize:'30px', color:'#000080', fontWeight:'bold'}}>{editData ? 'Edit Form' : ' Create New Form Escalation'}</h2>
         <FormComponent selectedData={selectedData} onSave={handleSave} />
-        <button onClick={goToHomePage} style={{ marginTop: '20px' }}>Back</button>
+        <button onClick={goToHomePage} style={{ marginTop: '20px',fontSize:'20px', background:'#2a52be', color:'wheat' }}>Back</button>
       </div>
     );
   }
@@ -66,7 +66,7 @@ const NewFormPage = ({ onSave, goToHomePage, editData }) => {
   // แสดงส่วนของการค้นหาเมื่อยังไม่มีข้อมูลที่เลือก
   return (
     <div style={{ width: '100%', textAlign: 'center', position: 'relative', height: '100%' }}>
-      <h1 style={{ marginBottom: '20px' }}>New Form</h1>
+      <h1 style={{ marginBottom: '20px',textAlign: 'center' }}>New Form</h1>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
         <input
           type="text"
